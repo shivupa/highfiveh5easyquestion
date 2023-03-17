@@ -3,12 +3,8 @@
 
 int main(int argc, char **argv) {
 
-    Eigen::Matrix<double, Eigen::Dynamic, 1> col_vec;
-    col_vec.resize(10);
-    col_vec.Random();
-    Eigen::Matrix<double, 1, Eigen::Dynamic> row_vec;
-    row_vec.resize(10);
-    row_vec.Random();
+    Eigen::Matrix<double, 10, 1> col_vec = Eigen::Matrix<double, 10, 1>::Random();
+    Eigen::Matrix<double, 1, 10> row_vec = Eigen::Matrix<double, 1, 10>::Random();
 
     H5Easy::File file("example.h5", H5Easy::File::Overwrite);
     H5Easy::dump(file, "/col_vec", col_vec);
